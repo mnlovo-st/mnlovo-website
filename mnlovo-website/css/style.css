@@ -1309,6 +1309,28 @@ body::after {
     .ft-links { gap:12px }
     .toast { white-space:normal; text-align:center; max-width:90vw }
     .dev-status { width:clamp(180px,70vw,260px) }
+
+    /* Nav — always pinned solid on mobile (no transparent state) */
+    .nav,
+    .nav.stuck {
+        padding: 9px 0;
+        background: rgba(6,6,10,.92);
+        -webkit-backdrop-filter: var(--blur);
+                backdrop-filter: var(--blur);
+        border-bottom: 1px solid var(--brd);
+    }
+    .nav-inner   { padding: 0 14px; gap: 8px }
+    .nav-right   { gap: 7px }
+    .nav-logo    { font-size: 15px; letter-spacing: -.3px }
+    .nav-lang    { width: 34px; height: 34px; font-size: 11px }
+    .nav-discord {
+        padding: 7px 10px; font-size: 11px; border-radius: 9px; gap: 5px;
+    }
+    .nav-discord svg  { width: 13px; height: 13px }
+    .nav-discord span { display: none }   /* icon-only on small screens */
+    .nav-dl {
+        padding: 7px 12px; font-size: 11px; border-radius: 9px;
+    }
 }
 
 /* Very small phones */
