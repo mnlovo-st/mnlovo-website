@@ -122,7 +122,14 @@ function submitNotify() {
     vaporizeNotifyRow(emailVal, () => {
         const row = document.getElementById('notifyRow');
         if (row) row.remove();
-        if (success) success.classList.add('show');
+        const s = document.getElementById('notifySuccess');
+        if (s) {
+            s.style.cssText = 'display:flex !important';   // brute-force show
+            s.classList.add('show');
+            console.log('[mnlovo] success state activated');
+        } else {
+            console.error('[mnlovo] #notifySuccess NOT FOUND');
+        }
     });
 
     showToast('🎉 سيصلك إشعار عند الإطلاق!', 'toast-ok');
