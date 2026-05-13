@@ -3,10 +3,32 @@
    ══════════════════════════════ */
 'use strict';
 
-// ── Nav stick ───────────────────────────────
+// ── Nav stick + auto-hide on mobile scroll-down ────────────────
 const nav = document.getElementById('nav');
+let _lastScroll = 0;
+let _navTicking = false;
+
 window.addEventListener('scroll', () => {
-    nav.classList.toggle('stuck', window.scrollY > 40);
+    if (_navTicking) return;
+    _navTicking = true;
+    requestAnimationFrame(() => {
+        const y = window.scrollY;
+        nav.classList.toggle('stuck', y > 40);
+
+        // Auto-hide only on mobile (≤ 480px)
+        if (window.innerWidth <= 480) {
+            const delta = y - _lastScroll;
+            if (y > 120 && delta > 4) {
+                nav.classList.add('nav-hide');         // scrolling down → hide
+            } else if (delta < -4 || y <= 60) {
+                nav.classList.remove('nav-hide');      // scrolling up → show
+            }
+        } else {
+            nav.classList.remove('nav-hide');          // never hide on desktop
+        }
+        _lastScroll = y;
+        _navTicking = false;
+    });
 }, { passive: true });
 
 // ── Smooth scroll ────────────────────────────
