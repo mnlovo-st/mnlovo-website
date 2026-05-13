@@ -57,30 +57,32 @@ function scrollTo(id) {
 })();
 
 // ── Scroll reveal ─────────────────────────────
+// Strategy: animation-play-state: paused holds opacity:0 via fill-mode:both.
+// Observer just flips it to running — no setTimeout/rAF timing tricks needed.
 const io = new IntersectionObserver(entries => {
     entries.forEach(e => {
         if (!e.isIntersecting) return;
-        const d = parseInt(e.target.dataset.delay || '0', 10);
-        setTimeout(() => e.target.classList.add('on'), d);
+        e.target.classList.add('on');
         io.unobserve(e.target);
     });
-}, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
 function setupReveal() {
     document.querySelectorAll('.sec-head').forEach(el => {
-        el.classList.add('reveal'); io.observe(el);
+        el.classList.add('reveal');
+        io.observe(el);
     });
     ['.feat-card', '.proj-card'].forEach(sel => {
         document.querySelectorAll(sel).forEach((el, i) => {
             el.classList.add('reveal');
-            el.dataset.delay = String(i * 90);
+            el.style.animationDelay = (i * 90) + 'ms';
             io.observe(el);
         });
     });
     ['.about-text', '.about-visual', '.cta-body'].forEach(sel => {
         document.querySelectorAll(sel).forEach((el, i) => {
             el.classList.add('reveal');
-            el.dataset.delay = String(i * 110);
+            el.style.animationDelay = (i * 110) + 'ms';
             io.observe(el);
         });
     });
@@ -100,15 +102,245 @@ function setupProgress() {
 
 // ── Notify form ───────────────────────────────
 function submitNotify() {
-    const input = document.getElementById('emailIn');
-    const val   = (input?.value || '').trim();
+    const input   = document.getElementById('emailIn');
+    const success = document.getElementById('notifySuccess');
+    const val     = (input?.value || '').trim();
+
     if (!val || !val.includes('@') || !val.includes('.')) {
         showToast('⚠️ أدخل بريد إلكتروني صحيح', 'toast-warn');
         return;
     }
+
+    const stored = JSON.parse(localStorage.getItem('mnlovo_emails') || '[]');
+    stored.push({ email: val, date: new Date().toISOString() });
+    localStorage.setItem('mnlovo_emails', JSON.stringify(stored));
+
+    const emailVal = val;
     input.value = '';
+    input.blur();   // remove focus ring before vaporize
+
+    vaporizeNotifyRow(emailVal, () => {
+        const row = document.getElementById('notifyRow');
+        if (row && row.parentNode) row.parentNode.removeChild(row);
+        if (success) {
+            success.style.display = 'flex';
+            success.classList.add('show');
+            console.log('[mnlovo] notify-success shown', success);
+        } else {
+            console.warn('[mnlovo] notifySuccess element not found in DOM');
+        }
+    });
+
     showToast('🎉 سيصلك إشعار عند الإطلاق!', 'toast-ok');
 }
+
+// ── Canvas roundRect polyfill (Safari < 15.4) ─────────────────
+(function () {
+    const p = CanvasRenderingContext2D.prototype;
+    if (p.roundRect) return;
+    p.roundRect = function (x, y, w, h, r) {
+        r = Math.min(r, w / 2, h / 2);
+        this.moveTo(x + r, y);
+        this.arcTo(x + w, y,     x + w, y + h, r);
+        this.arcTo(x + w, y + h, x,     y + h, r);
+        this.arcTo(x,     y + h, x,     y,     r);
+        this.arcTo(x,     y,     x + w, y,     r);
+        this.closePath();
+    };
+})();
+
+// ── Vaporize notify-row with canvas particles ─────────────────
+// FIX: canvas is PAD pixels larger on every side so particles can
+// travel outside the row bounds without being clipped.
+function vaporizeNotifyRow(email, onComplete) {
+    const row   = document.getElementById('notifyRow');
+    const input = document.getElementById('emailIn');
+    const btn   = row ? row.querySelector('.notify-btn') : null;
+    if (!row) { onComplete(); return; }
+
+    const rowRect   = row.getBoundingClientRect();
+    const inputRect = input ? input.getBoundingClientRect() : null;
+    const btnRect   = btn   ? btn.getBoundingClientRect()   : null;
+
+    const dpr = Math.min(window.devicePixelRatio * 1.5, 3);
+    const PAD = 180;                          // extra breathing room for particles
+    const W   = rowRect.width  + PAD * 2;
+    const H   = rowRect.height + PAD * 2;
+
+    // Canvas is PAD px larger on every side
+    const canvas = document.createElement('canvas');
+    canvas.width  = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    canvas.style.cssText = [
+        `position:fixed`,
+        `top:${rowRect.top  - PAD}px`,
+        `left:${rowRect.left - PAD}px`,
+        `width:${W}px`,
+        `height:${H}px`,
+        `pointer-events:none`,
+        `z-index:9999`,
+    ].join(';');
+    document.body.appendChild(canvas);
+
+    row.style.opacity = '0';          // instant hide — kills border + focus ring
+
+    const ctx = canvas.getContext('2d');
+
+    // Draw form elements — offset inward by PAD so they sit in the right spot
+    _drawForm(ctx, email, dpr, PAD, rowRect, inputRect, btnRect);
+
+    // Sample pixels → particles
+    const imgData    = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const px         = imgData.data;
+    const sampleRate = Math.max(1, Math.round(dpr / 1.5));
+    const particles  = [];
+
+    for (let y = 0; y < canvas.height; y += sampleRate) {
+        for (let x = 0; x < canvas.width; x += sampleRate) {
+            const idx = (y * canvas.width + x) * 4;
+            if (px[idx + 3] < 12) continue;
+            const origA = (px[idx + 3] / 255) * (sampleRate / dpr);
+            particles.push({
+                x, y, ox: x, oy: y,
+                col: `rgba(${px[idx]},${px[idx+1]},${px[idx+2]},`,
+                op: origA, oa: origA,
+                vx: 0, vy: 0, spd: 0,
+                quick: Math.random() > 0.52,
+            });
+        }
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Animate — wave sweeps right→left (RTL feel)
+    const DURATION = 1300;
+    const SPREAD   = 3.2;
+    const t0 = performance.now();
+    let   last = t0;
+
+    // The wave starts at the right edge of the actual form content (not the PAD)
+    const formRight = (rowRect.width + PAD) * dpr;
+    const formLeft  = PAD * dpr;
+
+    (function step(now) {
+        const dt       = Math.min((now - last) / 1000, 0.05);
+        last           = now;
+        const progress = Math.min(1, (now - t0) / DURATION);
+        const waveX    = formRight - (formRight - formLeft) * progress;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let allGone = true;
+
+        for (const p of particles) {
+            const hit = p.ox >= waveX;
+
+            if (hit) {
+                if (p.spd === 0) {
+                    const ang = Math.random() * Math.PI * 2;
+                    p.spd = (Math.random() * 1.4 + 0.4) * SPREAD;
+                    p.vx  = Math.cos(ang) * p.spd;
+                    p.vy  = Math.sin(ang) * p.spd;
+                }
+
+                if (p.quick) {
+                    p.op = Math.max(0, p.op - dt * 1.8);
+                } else {
+                    const dx   = p.ox - p.x;
+                    const dy   = p.oy - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const damp = Math.max(0.92, 1 - dist / (90 * SPREAD));
+                    p.vx = (p.vx + (Math.random() - .5) * SPREAD * 3 + dx * .002) * damp;
+                    p.vy = (p.vy + (Math.random() - .5) * SPREAD * 3 + dy * .002) * damp;
+                    const vel = Math.sqrt(p.vx * p.vx + p.vy * p.vy);
+                    const max = SPREAD * 2;
+                    if (vel > max) { const s = max / vel; p.vx *= s; p.vy *= s; }
+                    p.x += p.vx * dt * 20;
+                    p.y += p.vy * dt * 10;
+                    p.op = Math.max(0, p.op - dt * 0.28);
+                }
+
+                if (p.op > 0.008) allGone = false;
+            } else {
+                allGone = false;
+            }
+
+            if (p.op > 0) {
+                ctx.fillStyle = `${p.col}${p.op})`;
+                ctx.fillRect(p.x, p.y, sampleRate, sampleRate);
+            }
+        }
+
+        if (progress < 1 || !allGone) {
+            requestAnimationFrame(step);
+        } else {
+            canvas.remove();
+            onComplete();
+        }
+    })(t0);
+}
+
+// ── Draw form on canvas — all positions offset by PAD ────────
+function _drawForm(ctx, email, dpr, PAD, rowRect, inputRect, btnRect) {
+    const r  = 12 * dpr;
+    const px = PAD * dpr;   // PAD in physical pixels
+
+    if (inputRect) {
+        const ix = (inputRect.left - rowRect.left) * dpr + px;
+        const iy = (inputRect.top  - rowRect.top)  * dpr + px;
+        const iw = inputRect.width  * dpr;
+        const ih = inputRect.height * dpr;
+
+        ctx.beginPath();
+        ctx.roundRect(ix, iy, iw, ih, r);
+        ctx.fillStyle = 'rgba(255,255,255,0.06)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(255,255,255,0.14)';
+        ctx.lineWidth = 1 * dpr;
+        ctx.stroke();
+
+        if (email) {
+            ctx.font = `500 ${14 * dpr}px Cairo,sans-serif`;
+            ctx.fillStyle = '#eeeef5';
+            ctx.textAlign = 'left';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(email, ix + 18 * dpr, iy + ih / 2);
+        }
+    }
+
+    if (btnRect) {
+        const bx = (btnRect.left - rowRect.left) * dpr + px;
+        const by = (btnRect.top  - rowRect.top)  * dpr + px;
+        const bw = btnRect.width  * dpr;
+        const bh = btnRect.height * dpr;
+
+        const grad = ctx.createLinearGradient(bx, 0, bx + bw, 0);
+        grad.addColorStop(0, '#00d4ff');
+        grad.addColorStop(1, '#7928ca');
+
+        ctx.beginPath();
+        ctx.roundRect(bx, by, bw, bh, r);
+        ctx.fillStyle = grad;
+        ctx.fill();
+
+        ctx.font = `800 ${14 * dpr}px Cairo,sans-serif`;
+        ctx.fillStyle = '#06060a';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('أعلمني', bx + bw / 2, by + bh / 2);
+    }
+}
+
+// ── Email list helpers (browser console) ─────────────────────
+window.getEmails    = () => JSON.parse(localStorage.getItem('mnlovo_emails') || '[]');
+window.exportEmails = () => {
+    const list = window.getEmails();
+    if (!list.length) { console.log('لا يوجد إيميلات مسجلة'); return; }
+    const txt = list.map((e, i) =>
+        `${i + 1}. ${e.email}  (${new Date(e.date).toLocaleString('ar')})`
+    ).join('\n');
+    console.log('═══ قائمة الإيميلات ═══\n' + txt + `\n\nالمجموع: ${list.length}`);
+    return list;
+};
 
 // ── Toast ─────────────────────────────────────
 let _tt;
