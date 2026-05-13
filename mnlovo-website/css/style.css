@@ -97,8 +97,10 @@ body::after {
 .nav {
     position: fixed; top:0; left:0; right:0; z-index: 900;
     padding: 18px 0;
-    transition: padding .3s var(--ease), background .3s var(--ease), border-color .3s var(--ease);
+    transition: padding .3s var(--ease), background .3s var(--ease),
+                border-color .3s var(--ease), transform .35s var(--ease);
 }
+.nav.nav-hide { transform: translateY(-100%) }
 .nav.stuck {
     padding: 11px 0;
     background: rgba(6,6,10,.9);
