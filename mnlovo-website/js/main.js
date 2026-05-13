@@ -100,6 +100,35 @@ function setupProgress() {
     document.querySelectorAll('.pp-fill').forEach(b => obs.observe(b));
 }
 
+// ── Discord webhook (PASTE YOUR URL HERE) ────────────────────
+// Get it from: Discord Server → Channel ⚙️ → Integrations → Webhooks → New
+const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1504157837792772267/JT-HAntNswdPUZHfzb9tDKarlT386ofmAYoK7aTxfcoaZWVcvFLwFAm3XrDf41CyoC6_';
+
+async function sendToDiscord(email) {
+    if (!DISCORD_WEBHOOK || DISCORD_WEBHOOK.includes('PASTE_YOUR')) {
+        console.warn('[mnlovo] Discord webhook not configured');
+        return;
+    }
+    try {
+        await fetch(DISCORD_WEBHOOK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                embeds: [{
+                    title: '📧 إيميل جديد للقائمة!',
+                    description: '```' + email + '```',
+                    color: 0x00d4ff,
+                    timestamp: new Date().toISOString(),
+                    footer: { text: 'MNLOVO Waitlist' }
+                }]
+            })
+        });
+        console.log('[mnlovo] email sent to Discord');
+    } catch (err) {
+        console.error('[mnlovo] Discord webhook failed:', err);
+    }
+}
+
 // ── Notify form ───────────────────────────────
 function submitNotify() {
     const input   = document.getElementById('emailIn');
@@ -111,22 +140,28 @@ function submitNotify() {
         return;
     }
 
+    // Save locally + send to Discord
     const stored = JSON.parse(localStorage.getItem('mnlovo_emails') || '[]');
     stored.push({ email: val, date: new Date().toISOString() });
     localStorage.setItem('mnlovo_emails', JSON.stringify(stored));
+    sendToDiscord(val);   // fire-and-forget
 
     const emailVal = val;
     input.value = '';
-    input.blur();   // remove focus ring before vaporize
+    input.blur();
 
     vaporizeNotifyRow(emailVal, () => {
         const row = document.getElementById('notifyRow');
         if (row) row.remove();
         const s = document.getElementById('notifySuccess');
         if (s) {
-            s.style.cssText = 'display:flex !important';   // brute-force show
+            // Brute-force display — bypasses any cached CSS
+            s.style.display      = 'flex';
+            s.style.flexDirection = 'column';
+            s.style.alignItems   = 'center';
+            s.style.opacity      = '1';
             s.classList.add('show');
-            console.log('[mnlovo] success state activated');
+            console.log('[mnlovo] success state activated', s);
         } else {
             console.error('[mnlovo] #notifySuccess NOT FOUND');
         }
