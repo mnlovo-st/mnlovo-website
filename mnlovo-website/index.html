@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=11">
+    <link rel="stylesheet" href="css/style.css?v=13">
     <link rel="icon" href="assets/favicon.ico">
 </head>
 <body>
@@ -19,11 +19,14 @@
     <div class="nav-inner">
         <span class="nav-logo">MNLOVO</span>
         <div class="nav-right">
+            <button class="nav-lang" onclick="toggleLang()" title="Language / اللغة">
+                <span class="nav-lang-current">EN</span>
+            </button>
             <a href="https://discord.gg/8BtXhHTkEc" class="nav-discord" target="_blank" rel="noopener">
                 <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.62.874-1.275 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-                <span>سيرفرنا</span>
+                <span data-ar="سيرفرنا" data-en="Our Server">سيرفرنا</span>
             </a>
-            <button class="nav-dl" onclick="scrollTo('download')">قيد التطوير</button>
+            <button class="nav-dl" onclick="scrollTo('download')" data-ar="قيد التطوير" data-en="Coming Soon">قيد التطوير</button>
         </div>
     </div>
 </nav>
@@ -83,14 +86,18 @@
 
         <!-- Floating badges around logo -->
         <div class="hero-float-badges">
-            <div class="fb fb-1">🛠️ أدوات</div>
-            <div class="fb fb-2">🎮 ألعاب</div>
-            <div class="fb fb-3">👥 مجتمع</div>
-            <div class="fb fb-4">⚡ تطوير</div>
+            <div class="fb fb-1" data-ar="🛠️ أدوات" data-en="🛠️ Tools">🛠️ أدوات</div>
+            <div class="fb fb-2" data-ar="🎮 ألعاب" data-en="🎮 Games">🎮 ألعاب</div>
+            <div class="fb fb-3" data-ar="👥 مجتمع" data-en="👥 Community">👥 مجتمع</div>
+            <div class="fb fb-4" data-ar="⚡ تطوير" data-en="⚡ Dev">⚡ تطوير</div>
         </div>
 
-        <h1 class="hero-h1">تجربة <span class="grad-text">لا مثيل</span> لها</h1>
-        <p class="hero-sub">
+        <h1 class="hero-h1"
+            data-ar-html='تجربة <span class="grad-text">لا مثيل</span> لها'
+            data-en-html='An <span class="grad-text">Unmatched</span> Experience'>تجربة <span class="grad-text">لا مثيل</span> لها</h1>
+        <p class="hero-sub"
+            data-ar-html='منصة شاملة تجمع الأدوات المتقدمة، تحسين الألعاب،<br class="br-hide">والمجتمع العربي في مكان واحد'
+            data-en-html='A comprehensive platform combining advanced tools, gaming optimization,<br class="br-hide">and our community in one place'>
             منصة شاملة تجمع الأدوات المتقدمة، تحسين الألعاب،<br class="br-hide">
             والمجتمع العربي في مكان واحد
         </p>
@@ -102,7 +109,7 @@
                 <span class="dev-dots">
                     <i></i><i></i><i></i>
                 </span>
-                <span class="dev-label">قيد التطوير</span>
+                <span class="dev-label" data-ar="قيد التطوير" data-en="In Development">قيد التطوير</span>
                 <div class="dev-shimmer"></div>
             </div>
         </div>
@@ -126,7 +133,7 @@
         <div class="hero-socials">
             <a href="https://discord.gg/8BtXhHTkEc" class="hs-btn hs-discord" target="_blank" rel="noopener">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.62.874-1.275 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-                سيرفرنا
+                <span data-ar="سيرفرنا" data-en="Our Server">سيرفرنا</span>
             </a>
             <a href="https://instagram.com/mnlovo" class="hs-btn hs-insta" target="_blank" rel="noopener">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -134,7 +141,7 @@
             </a>
             <a href="mailto:mnlovo.st@gmail.com" class="hs-btn hs-email">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                راسلنا
+                <span data-ar="راسلنا" data-en="Contact Us">راسلنا</span>
             </a>
         </div>
 
@@ -142,7 +149,7 @@
 
     <div class="scroll-hint">
         <div class="sh-line"></div>
-        <span>اكتشف أكثر</span>
+        <span data-ar="اكتشف أكثر" data-en="Discover More">اكتشف أكثر</span>
     </div>
 </section>
 
@@ -150,25 +157,25 @@
 <section class="section" id="features">
     <div class="wrap">
         <div class="sec-head">
-            <div class="sec-tag">المميزات</div>
-            <h2 class="sec-title">شو يقدر يسوي MNLOVO؟</h2>
-            <p class="sec-sub">مجموعة مميزات مصممة خصيصاً للمستخدم العربي</p>
+            <div class="sec-tag" data-ar="المميزات" data-en="Features">المميزات</div>
+            <h2 class="sec-title" data-ar="شو يقدر يسوي MNLOVO؟" data-en="What can MNLOVO do?">شو يقدر يسوي MNLOVO؟</h2>
+            <p class="sec-sub" data-ar="مجموعة مميزات مصممة خصيصاً للمستخدم العربي" data-en="A set of features designed specifically for our users">مجموعة مميزات مصممة خصيصاً للمستخدم العربي</p>
         </div>
 
         <div class="feat-grid">
 
             <div class="feat-card fc-1">
                 <div class="fc-icon">🛠️</div>
-                <h3>أدوات متقدمة</h3>
-                <p>
+                <h3 data-ar="أدوات متقدمة" data-en="Advanced Tools">أدوات متقدمة</h3>
+                <p data-ar="أدوات تقنية تساعدك في برمجاتك، فحوصاتك، تحسيناتك — وأدوات خاصة، كود، وأشياء ثانية ما تلقاها في مكان ثاني" data-en="Technical tools that help with programming, scanning, and optimization — plus exclusive utilities, code, and more you won't find anywhere else">
                     أدوات تقنية تساعدك في برمجاتك، فحوصاتك، تحسيناتك — وأدوات خاصة، كود، وأشياء ثانية ما تلقاها في مكان ثاني
                 </p>
             </div>
 
             <div class="feat-card fc-2">
                 <div class="fc-icon">🎮</div>
-                <h3>تحسين الألعاب</h3>
-                <p>
+                <h3 data-ar="تحسين الألعاب" data-en="Game Optimization">تحسين الألعاب</h3>
+                <p data-ar="حدد مواصفات جهازك، اختر اللعبة — نسوي لك إعدادات مثالية مخصصة لك. تقدر تحفظ إعداداتك القديمة وترجعلها متى ما تبغى" data-en="Define your PC specs, choose your game — we craft optimized custom settings just for you. Save your old configs and restore them anytime">
                     حدد مواصفات جهازك، اختر اللعبة — نسوي لك إعدادات مثالية مخصصة لك. تقدر تحفظ إعداداتك القديمة وترجعلها متى ما تبغى
                 </p>
             </div>
@@ -177,16 +184,16 @@
                 <div class="fc-icon">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.62.874-1.275 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
                 </div>
-                <h3>أدوات ديسكورد</h3>
-                <p>
+                <h3 data-ar="أدوات ديسكورد" data-en="Discord Tools">أدوات ديسكورد</h3>
+                <p data-ar="كل اللي تحتاجه لديسكوردك — Discord Drover، Fake Nitro، وبوتات MNLOVO الحصرية" data-en="Everything you need for Discord — Discord Drover, Fake Nitro, and exclusive MNLOVO bots">
                     كل اللي تحتاجه لديسكوردك — Discord Drover، Fake Nitro، وبوتات MNLOVO الحصرية
                 </p>
             </div>
 
             <div class="feat-card fc-4">
                 <div class="fc-icon">👥</div>
-                <h3>مجتمع عربي</h3>
-                <p>
+                <h3 data-ar="مجتمع عربي" data-en="Active Community">مجتمع عربي</h3>
+                <p data-ar="انضم لمجتمع عربي تقني نشط — دعم، تواصل، وتجربة مشتركة لا تنسى عبر سيرفرنا الحصري" data-en="Join an active tech community — support, connection, and an unforgettable shared experience through our exclusive server">
                     انضم لمجتمع عربي تقني نشط — دعم، تواصل، وتجربة مشتركة لا تنسى عبر سيرفرنا الحصري
                 </p>
             </div>
@@ -199,9 +206,9 @@
 <section class="section dark-sec" id="projects">
     <div class="wrap">
         <div class="sec-head">
-            <div class="sec-tag">مشاريعنا</div>
-            <h2 class="sec-title">مشاريعنا القادمة</h2>
-            <p class="sec-sub">شفافية كاملة مع مجتمعنا — تابع تطور كل مشروع</p>
+            <div class="sec-tag" data-ar="مشاريعنا" data-en="Our Projects">مشاريعنا</div>
+            <h2 class="sec-title" data-ar="مشاريعنا القادمة" data-en="Upcoming Projects">مشاريعنا القادمة</h2>
+            <p class="sec-sub" data-ar="شفافية كاملة مع مجتمعنا — تابع تطور كل مشروع" data-en="Full transparency with our community — track every project's progress">شفافية كاملة مع مجتمعنا — تابع تطور كل مشروع</p>
         </div>
 
         <div class="proj-grid">
@@ -215,10 +222,10 @@
                 </div>
                 <div class="proj-body">
                     <div class="proj-top">
-                        <h3>تطبيق MNLOVO</h3>
-                        <div class="proj-status active-s">قيد التطوير</div>
+                        <h3 data-ar="تطبيق MNLOVO" data-en="MNLOVO App">تطبيق MNLOVO</h3>
+                        <div class="proj-status active-s" data-ar="قيد التطوير" data-en="In Development">قيد التطوير</div>
                     </div>
-                    <p class="proj-desc">
+                    <p class="proj-desc" data-ar="التطبيق الرئيسي الشامل لمنصة MNLOVO — الأدوات، تحسين الألعاب، والمجتمع كله في تجربة واحدة" data-en="The main comprehensive app for the MNLOVO platform — tools, gaming optimization, and community all in one experience">
                         التطبيق الرئيسي الشامل لمنصة MNLOVO — الأدوات، تحسين الألعاب، والمجتمع كله في تجربة واحدة
                     </p>
                     <div class="proj-targets">
@@ -226,7 +233,7 @@
                     </div>
                     <div class="proj-prog">
                         <div class="pp-head">
-                            <span>نسبة الاكتمال</span>
+                            <span data-ar="نسبة الاكتمال" data-en="Completion">نسبة الاكتمال</span>
                             <span class="pp-num">12%</span>
                         </div>
                         <div class="pp-track"><div class="pp-fill" data-w="12"></div></div>
@@ -244,9 +251,9 @@
                 <div class="proj-body">
                     <div class="proj-top">
                         <h3>Verticality</h3>
-                        <div class="proj-status plan-s">مخطط</div>
+                        <div class="proj-status plan-s" data-ar="مخطط" data-en="Planned">مخطط</div>
                     </div>
-                    <p class="proj-desc">
+                    <p class="proj-desc" data-ar="لعبة مطورة من الصفر على Unreal Engine 5 — لا نقدر نتكلم بس في شيء رهيب قادم يستاهل الانتظار" data-en="A game built from scratch on Unreal Engine 5 — we can't say much, but something incredible is coming, worth the wait">
                         لعبة مطورة من الصفر على Unreal Engine 5 — لا نقدر نتكلم بس في شيء رهيب قادم يستاهل الانتظار
                     </p>
                     <div class="proj-targets">
@@ -256,7 +263,7 @@
                     </div>
                     <div class="proj-prog">
                         <div class="pp-head">
-                            <span>نسبة الاكتمال</span>
+                            <span data-ar="نسبة الاكتمال" data-en="Completion">نسبة الاكتمال</span>
                             <span class="pp-num">1%</span>
                         </div>
                         <div class="pp-track"><div class="pp-fill" data-w="1"></div></div>
@@ -274,18 +281,18 @@
                 <div class="proj-body">
                     <div class="proj-top">
                         <h3>Spacetime</h3>
-                        <div class="proj-status plan-s">مخطط</div>
+                        <div class="proj-status plan-s" data-ar="مخطط" data-en="Planned">مخطط</div>
                     </div>
-                    <p class="proj-desc">
+                    <p class="proj-desc" data-ar="فيديو علمي ضخم عن الزمكان — رحلة بصرية عميقة في فيزياء الكون تشرح ما يعجز الخيال عن تصوره" data-en="A massive scientific video about spacetime — a deep visual journey through the physics of the universe explaining what imagination fails to grasp">
                         فيديو علمي ضخم عن الزمكان — رحلة بصرية عميقة في فيزياء الكون تشرح ما يعجز الخيال عن تصوره
                     </p>
                     <div class="proj-targets">
-                        <span>🎬 فيديو علمي</span>
-                        <span>🔭 فيزياء</span>
+                        <span data-ar="🎬 فيديو علمي" data-en="🎬 Science Video">🎬 فيديو علمي</span>
+                        <span data-ar="🔭 فيزياء" data-en="🔭 Physics">🔭 فيزياء</span>
                     </div>
                     <div class="proj-prog">
                         <div class="pp-head">
-                            <span>نسبة الاكتمال</span>
+                            <span data-ar="نسبة الاكتمال" data-en="Completion">نسبة الاكتمال</span>
                             <span class="pp-num">18%</span>
                         </div>
                         <div class="pp-track"><div class="pp-fill" data-w="18"></div></div>
@@ -302,10 +309,10 @@
                 </div>
                 <div class="proj-body">
                     <div class="proj-top">
-                        <h3>بوت MNLOVO</h3>
-                        <div class="proj-status plan-s">مخطط</div>
+                        <h3 data-ar="بوت MNLOVO" data-en="MNLOVO Bot">بوت MNLOVO</h3>
+                        <div class="proj-status plan-s" data-ar="مخطط" data-en="Planned">مخطط</div>
                     </div>
-                    <p class="proj-desc">
+                    <p class="proj-desc" data-ar="بوت ديسكورد حصري بميزات لا تجدها في أي مكان آخر — تكامل كامل مع منصة MNLOVO" data-en="An exclusive Discord bot with features you won't find anywhere else — full integration with the MNLOVO platform">
                         بوت ديسكورد حصري بميزات لا تجدها في أي مكان آخر — تكامل كامل مع منصة MNLOVO
                     </p>
                     <div class="proj-targets">
@@ -314,7 +321,7 @@
                     </div>
                     <div class="proj-prog">
                         <div class="pp-head">
-                            <span>نسبة الاكتمال</span>
+                            <span data-ar="نسبة الاكتمال" data-en="Completion">نسبة الاكتمال</span>
                             <span class="pp-num">56%</span>
                         </div>
                         <div class="pp-track"><div class="pp-fill" data-w="56"></div></div>
@@ -331,26 +338,28 @@
     <div class="wrap">
         <div class="about-layout">
             <div class="about-text">
-                <div class="sec-tag">من نحن</div>
-                <h2 class="sec-title about-title">بنبني شيء<br><span class="grad-text">مختلف</span></h2>
-                <p class="about-p">
+                <div class="sec-tag" data-ar="من نحن" data-en="About Us">من نحن</div>
+                <h2 class="sec-title about-title"
+                    data-ar-html='بنبني شيء<br><span class="grad-text">مختلف</span>'
+                    data-en-html='We are building something<br><span class="grad-text">different</span>'>بنبني شيء<br><span class="grad-text">مختلف</span></h2>
+                <p class="about-p" data-ar="MNLOVO منصة عربية تقنية — ليس مجرد تطبيق، مجتمع كامل يفهم احتياجات المستخدم العربي." data-en="MNLOVO is a tech platform — not just an app, but a complete community that understands user needs.">
                     MNLOVO منصة عربية تقنية — ليس مجرد تطبيق، مجتمع كامل يفهم احتياجات المستخدم العربي.
                 </p>
-                <p class="about-p">
+                <p class="about-p" data-ar="هدفنا نجمع الأدوات المتقدمة، تحسين الألعاب، والمجتمع في مكان واحد بتجربة سلسة وعصرية ما تجدها في مكان ثاني." data-en="Our goal is to combine advanced tools, gaming optimization, and community in one place with a smooth, modern experience you won't find anywhere else.">
                     هدفنا نجمع الأدوات المتقدمة، تحسين الألعاب، والمجتمع في مكان واحد بتجربة سلسة وعصرية ما تجدها في مكان ثاني.
                 </p>
                 <div class="about-values">
                     <div class="av-item">
                         <div class="av-dot c1"></div>
-                        <span>شفافية كاملة مع المجتمع</span>
+                        <span data-ar="شفافية كاملة مع المجتمع" data-en="Full transparency with the community">شفافية كاملة مع المجتمع</span>
                     </div>
                     <div class="av-item">
                         <div class="av-dot c2"></div>
-                        <span>تطوير مستمر وتحديثات دورية</span>
+                        <span data-ar="تطوير مستمر وتحديثات دورية" data-en="Continuous development and regular updates">تطوير مستمر وتحديثات دورية</span>
                     </div>
                     <div class="av-item">
                         <div class="av-dot c3"></div>
-                        <span>مصمم خصيصاً للمستخدم العربي</span>
+                        <span data-ar="مصمم خصيصاً للمستخدم العربي" data-en="Designed specifically for our users">مصمم خصيصاً للمستخدم العربي</span>
                     </div>
                 </div>
             </div>
@@ -359,28 +368,28 @@
                 <div class="av-orb"></div>
                 <div class="av-card av-main">
                     <div class="avc-icon">🚀</div>
-                    <div class="avc-label">منصة متكاملة</div>
-                    <div class="avc-sub">أدوات + ألعاب + مجتمع</div>
+                    <div class="avc-label" data-ar="منصة متكاملة" data-en="All-in-One">منصة متكاملة</div>
+                    <div class="avc-sub" data-ar="أدوات + ألعاب + مجتمع" data-en="Tools + Games + Community">أدوات + ألعاب + مجتمع</div>
                 </div>
                 <div class="av-card av-s1">
                     <div class="avc-icon">🌍</div>
-                    <div class="avc-label">بالعربي</div>
-                    <div class="avc-sub-sm">واجهة عربية 100%</div>
+                    <div class="avc-label" data-ar="بالعربي" data-en="Localized">بالعربي</div>
+                    <div class="avc-sub-sm" data-ar="واجهة عربية 100%" data-en="100% Arabic UI">واجهة عربية 100%</div>
                 </div>
                 <div class="av-card av-s2">
                     <div class="avc-icon">⚡</div>
-                    <div class="avc-label">سريع ومتطور</div>
-                    <div class="avc-sub-sm">تقنيات حديثة</div>
+                    <div class="avc-label" data-ar="سريع ومتطور" data-en="Fast & Modern">سريع ومتطور</div>
+                    <div class="avc-sub-sm" data-ar="تقنيات حديثة" data-en="Modern Tech">تقنيات حديثة</div>
                 </div>
                 <div class="av-card av-s3">
                     <div class="avc-icon">🔒</div>
-                    <div class="avc-label">آمن وموثوق</div>
-                    <div class="avc-sub-sm">خصوصيتك أولاً</div>
+                    <div class="avc-label" data-ar="آمن وموثوق" data-en="Safe & Trusted">آمن وموثوق</div>
+                    <div class="avc-sub-sm" data-ar="خصوصيتك أولاً" data-en="Privacy First">خصوصيتك أولاً</div>
                 </div>
                 <div class="av-card av-s4">
                     <div class="avc-icon">🎮</div>
-                    <div class="avc-label">للألعاب</div>
-                    <div class="avc-sub-sm">تحسين احترافي</div>
+                    <div class="avc-label" data-ar="للألعاب" data-en="For Gaming">للألعاب</div>
+                    <div class="avc-sub-sm" data-ar="تحسين احترافي" data-en="Pro Optimization">تحسين احترافي</div>
                 </div>
             </div>
         </div>
@@ -392,33 +401,37 @@
     <div class="cta-orb"></div>
     <div class="wrap">
         <div class="cta-body">
-            <div class="cta-pill">قادم قريباً</div>
-            <h2 class="cta-h2">حمّل MNLOVO<br><span class="grad-text">كون أول من يجربه</span></h2>
-            <p class="cta-p">التطبيق قيد التطوير النشط — سجّل بريدك وراح نرسل لك إشعار فور ما يطلع</p>
+            <div class="cta-pill" data-ar="قادم قريباً" data-en="Coming Soon">قادم قريباً</div>
+            <h2 class="cta-h2"
+                data-ar-html='حمّل MNLOVO<br><span class="grad-text">كون أول من يجربه</span>'
+                data-en-html='Download MNLOVO<br><span class="grad-text">Be the first to try it</span>'>حمّل MNLOVO<br><span class="grad-text">كون أول من يجربه</span></h2>
+            <p class="cta-p" data-ar="التطبيق قيد التطوير النشط — سجّل بريدك وراح نرسل لك إشعار فور ما يطلع" data-en="The app is in active development — sign up with your email and we'll notify you the moment it launches">التطبيق قيد التطوير النشط — سجّل بريدك وراح نرسل لك إشعار فور ما يطلع</p>
 
             <div class="notify-row" id="notifyRow">
-                <input type="email" id="emailIn" class="email-in" placeholder="بريدك الإلكتروني..." dir="ltr">
-                <button class="notify-btn" onclick="submitNotify()">أعلمني</button>
+                <input type="email" id="emailIn" class="email-in" placeholder="بريدك الإلكتروني..." data-ar-ph="بريدك الإلكتروني..." data-en-ph="Your email..." dir="ltr">
+                <button class="notify-btn" onclick="submitNotify()" data-ar="أعلمني" data-en="Notify Me">أعلمني</button>
             </div>
 
             <div class="notify-success" id="notifySuccess">
                 <div class="ns-spark">✦</div>
-                <div class="ns-joined">أهلاً بك في عائلة <span class="grad-text">MNLOVO</span></div>
-                <div class="ns-msg">بريدك وصلنا — سيصلك إشعار فور الإطلاق وتكون أوّل من يجرّب</div>
+                <div class="ns-joined"
+                    data-ar-html='أهلاً بك في عائلة <span class="grad-text">MNLOVO</span>'
+                    data-en-html='Welcome to the <span class="grad-text">MNLOVO</span> family'>أهلاً بك في عائلة <span class="grad-text">MNLOVO</span></div>
+                <div class="ns-msg" data-ar="بريدك وصلنا — سيصلك إشعار فور الإطلاق وتكون أوّل من يجرّب" data-en="We got your email — you'll be notified the moment we launch, and be the first to try">بريدك وصلنا — سيصلك إشعار فور الإطلاق وتكون أوّل من يجرّب</div>
                 <a href="https://discord.gg/8BtXhHTkEc" class="ns-disc-btn" target="_blank" rel="noopener">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.62.874-1.275 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
-                    انضم للمجتمع على ديسكورد
+                    <span data-ar="انضم للمجتمع على ديسكورد" data-en="Join our community on Discord">انضم للمجتمع على ديسكورد</span>
                 </a>
             </div>
 
             <button class="dl-btn" disabled style="margin:0 auto 28px;">
                 <span class="dl-icon">⬇︎</span>
-                <span class="dl-main">تحميل التطبيق</span>
-                <span class="dl-sub">قيد التطوير</span>
+                <span class="dl-main" data-ar="تحميل التطبيق" data-en="Download App">تحميل التطبيق</span>
+                <span class="dl-sub" data-ar="قيد التطوير" data-en="In Development">قيد التطوير</span>
             </button>
 
             <div class="cta-platforms">
-                <span>🪟 Windows فقط</span>
+                <span data-ar="🪟 Windows فقط" data-en="🪟 Windows Only">🪟 Windows فقط</span>
             </div>
 
         </div>
@@ -431,7 +444,7 @@
         <div class="ft-inner">
             <div class="ft-brand">
                 <div class="ft-logo">MNLOVO</div>
-                <p>المنصة الشاملة للمجتمع العربي التقني</p>
+                <p data-ar="المنصة الشاملة للمجتمع العربي التقني" data-en="The comprehensive platform for our tech community">المنصة الشاملة للمجتمع العربي التقني</p>
                 <div class="ft-socials">
                     <a href="https://discord.gg/8BtXhHTkEc" class="ft-soc ft-soc-discord" target="_blank" rel="noopener" title="Discord">
                         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.62.874-1.275 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
@@ -445,22 +458,22 @@
                 </div>
             </div>
             <div class="ft-links">
-                <a href="#home">الرئيسية</a>
-                <a href="#features">المميزات</a>
-                <a href="#projects">مشاريعنا</a>
-                <a href="#about">من نحن</a>
-                <a href="#download">تحميل</a>
+                <a href="#home" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+                <a href="#features" data-ar="المميزات" data-en="Features">المميزات</a>
+                <a href="#projects" data-ar="مشاريعنا" data-en="Projects">مشاريعنا</a>
+                <a href="#about" data-ar="من نحن" data-en="About">من نحن</a>
+                <a href="#download" data-ar="تحميل" data-en="Download">تحميل</a>
             </div>
         </div>
         <div class="ft-bottom">
-            <span>© 2026 MNLOVO — جميع الحقوق محفوظة</span>
-            <div class="ft-made">
-                صُنع للمجتمع العربي بكل <span class="ft-heart">♥</span>
-            </div>
+            <span data-ar="© 2026 MNLOVO — جميع الحقوق محفوظة" data-en="© 2026 MNLOVO — All rights reserved">© 2026 MNLOVO — جميع الحقوق محفوظة</span>
+            <div class="ft-made"
+                data-ar-html='صُنع للمجتمع العربي بكل <span class="ft-heart">♥</span>'
+                data-en-html='Made for our community with all <span class="ft-heart">♥</span>'>صُنع للمجتمع العربي بكل <span class="ft-heart">♥</span></div>
         </div>
     </div>
 </footer>
 
-<script src="js/main.js?v=12"></script>
+<script src="js/main.js?v=13"></script>
 </body>
 </html>
