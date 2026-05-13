@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="MNLOVO — منصة شاملة تجمع الأدوات والمجتمع والألعاب في مكان واحد">
+    <meta name="theme-color" content="#060609">
+    <title>MNLOVO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/favicon.ico">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+    <div class="nav-inner">
+        <span class="nav-logo">MNLOVO</span>
+        <button class="nav-dl" onclick="scrollTo('download')">⬇︎ تحميل التطبيق</button>
+    </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero" id="home">
+    <div class="hero-bg">
+        <div class="hgrid"></div>
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <canvas id="cvs"></canvas>
+    </div>
+
+    <div class="hero-body">
+
+        <!-- ── Logo scene ── -->
+        <div class="logo-scene">
+            <!-- Outer atmosphere -->
+            <div class="ls-atmo"></div>
+
+            <!-- Rotating rings -->
+            <div class="cpu-ring cpu-ring-1"></div>
+            <div class="cpu-ring cpu-ring-2"></div>
+            <div class="cpu-ring cpu-ring-3"></div>
+
+            <!-- Scan line sweep -->
+            <div class="ls-scan"></div>
+
+            <!-- Rays -->
+            <div class="cpu-rays">
+                <span class="ray ray-1"></span>
+                <span class="ray ray-2"></span>
+                <span class="ray ray-3"></span>
+                <span class="ray ray-4"></span>
+                <span class="ray ray-5"></span>
+                <span class="ray ray-6"></span>
+                <span class="ray ray-7"></span>
+                <span class="ray ray-8"></span>
+            </div>
+
+            <!-- Nodes -->
+            <div class="cpu-nodes">
+                <span class="node node-1"></span>
+                <span class="node node-2"></span>
+                <span class="node node-3"></span>
+                <span class="node node-4"></span>
+                <span class="node node-5"></span>
+                <span class="node node-6"></span>
+            </div>
+
+            <!-- Core glow -->
+            <div class="cpu-glow-core"></div>
+
+            <!-- Logo image -->
+            <img src="assets/mnlovo.png" alt="MNLOVO" class="logo-img">
+        </div>
+
+        <!-- Floating badges around logo -->
+        <div class="hero-float-badges">
+            <div class="fb fb-1">🛠️ أدوات</div>
+            <div class="fb fb-2">🎮 ألعاب</div>
+            <div class="fb fb-3">👥 مجتمع</div>
+            <div class="fb fb-4">⚡ تطوير</div>
+        </div>
+
+        <h1 class="hero-h1">تجربة <span class="grad-text">لا مثيل</span> لها</h1>
+        <p class="hero-sub">
+            منصة شاملة تجمع الأدوات المتقدمة، تحسين الألعاب،<br class="br-hide">
+            والمجتمع العربي في مكان واحد
+        </p>
+
+        <!-- Dev status — animated badge, no button -->
+        <div class="dev-status">
+            <div class="dev-border-spin"></div>
+            <div class="dev-inner">
+                <span class="dev-dots">
+                    <i></i><i></i><i></i>
+                </span>
+                <span class="dev-label">قيد التطوير</span>
+                <div class="dev-shimmer"></div>
+            </div>
+        </div>
+
+        <!-- Platform badge -->
+        <div class="win-badge">
+            <svg class="win-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 5.557L10.533 4.5V11.5H3V5.557Z" fill="currentColor"/>
+                <path d="M11.467 4.357L21 3V11.5H11.467V4.357Z" fill="currentColor"/>
+                <path d="M3 12.5H10.533V19.5L3 18.443V12.5Z" fill="currentColor"/>
+                <path d="M11.467 12.5H21V21L11.467 19.643V12.5Z" fill="currentColor"/>
+            </svg>
+            <div class="win-text">
+                <span class="win-name">Windows</span>
+                <span class="win-ver">10 &amp; 11</span>
+            </div>
+            <div class="win-pulse"></div>
+        </div>
+
+    </div>
+
+    <div class="scroll-hint">
+        <div class="sh-line"></div>
+        <span>اكتشف أكثر</span>
+    </div>
+</section>
+
+<!-- ═══════════ FEATURES ═══════════ -->
+<section class="section" id="features">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-tag">المميزات</div>
+            <h2 class="sec-title">شو يقدر يسوي MNLOVO؟</h2>
+            <p class="sec-sub">مجموعة مميزات مصممة خصيصاً للمستخدم العربي</p>
+        </div>
+
+        <div class="feat-grid">
+
+            <div class="feat-card fc-1">
+                <div class="fc-icon">🛠️</div>
+                <h3>أدوات متقدمة</h3>
+                <p>
+                    أدوات تقنية تساعدك في برمجاتك، فحوصاتك، تحسيناتك — وأدوات خاصة، كود، وأشياء ثانية كثيرة ما تلقاها في مكان ثاني
+                </p>
+            </div>
+
+            <div class="feat-card fc-2">
+                <div class="fc-icon">🎮</div>
+                <h3>تحسين الألعاب</h3>
+                <p>
+                    حدد مواصفات جهازك، اختر اللعبة — نسوي لك إعدادات مثالية مخصصة لك. تقدر تحفظ إعداداتك القديمة وترجعلها متى ما تبغى
+                </p>
+            </div>
+
+            <div class="feat-card fc-3">
+                <div class="fc-icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="28" height="28"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057.1 18.08.114 18.1.132 18.11a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.62.874-1.275 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
+                </div>
+                <h3>أدوات ديسكورد</h3>
+                <p>
+                    كل اللي تحتاجه لديسكوردك — Discord Drover، Fake Nitro، وبوتات MNLOVO الحصرية
+                </p>
+            </div>
+
+            <div class="feat-card fc-4">
+                <div class="fc-icon">👥</div>
+                <h3>مجتمع عربي</h3>
+                <p>
+                    انضم لمجتمع عربي تقني نشط — دعم، تواصل، وتجربة مشتركة لا تنسى عبر سيرفرنا الحصري
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ PROJECTS ═══════════ -->
+<section class="section dark-sec" id="projects">
+    <div class="wrap">
+        <div class="sec-head">
+            <div class="sec-tag">مشاريعنا</div>
+            <h2 class="sec-title">مشاريعنا القادمة</h2>
+            <p class="sec-sub">شفافية كاملة مع مجتمعنا — تابع تطور كل مشروع</p>
+        </div>
+
+        <div class="proj-grid">
+
+            <!-- 1. MNLOVO App -->
+            <div class="proj-card">
+                <div class="proj-visual pv-1">
+                    <div class="pv-bg"></div>
+                    <div class="pv-icon">📱</div>
+                    <div class="pv-shine"></div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-top">
+                        <h3>تطبيق MNLOVO</h3>
+                        <div class="proj-status active-s">قيد التطوير</div>
+                    </div>
+                    <p class="proj-desc">
+                        التطبيق الرئيسي الشامل لمنصة MNLOVO — الأدوات، تحسين الألعاب، والمجتمع كله في تجربة واحدة
+                    </p>
+                    <div class="proj-targets">
+                        <span>🪟 Windows</span>
+                    </div>
+                    <div class="proj-prog">
+                        <div class="pp-head">
+                            <span>نسبة الاكتمال</span>
+                            <span class="pp-num">10%</span>
+                        </div>
+                        <div class="pp-track"><div class="pp-fill" data-w="10"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Verticality Game -->
+            <div class="proj-card">
+                <div class="proj-visual pv-2">
+                    <div class="pv-bg"></div>
+                    <div class="pv-icon">🎮</div>
+                    <div class="pv-shine"></div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-top">
+                        <h3>Verticality</h3>
+                        <div class="proj-status plan-s">مخطط</div>
+                    </div>
+                    <p class="proj-desc">
+                        لعبة مطورة من الصفر على Unreal Engine 5 — لا نقدر نصرح كثير، بس في شيء رهيب قادم يستاهل الانتظار
+                    </p>
+                    <div class="proj-targets">
+                        <span>🎮 Steam</span>
+                        <span>🟣 Epic Games</span>
+                        <span>⚙️ Unreal Engine 5</span>
+                    </div>
+                    <div class="proj-prog">
+                        <div class="pp-head">
+                            <span>نسبة الاكتمال</span>
+                            <span class="pp-num">1%</span>
+                        </div>
+                        <div class="pp-track"><div class="pp-fill" data-w="1"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Spacetime -->
+            <div class="proj-card">
+                <div class="proj-visual pv-3">
+                    <div class="pv-bg"></div>
+                    <div class="pv-icon">🌌</div>
+                    <div class="pv-shine"></div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-top">
+                        <h3>Spacetime</h3>
+                        <div class="proj-status plan-s">مخطط</div>
+                    </div>
+                    <p class="proj-desc">
+                        فيديو علمي ضخم عن الزمكان — رحلة بصرية عميقة في فيزياء الكون تشرح ما يعجز الخيال عن تصوره
+                    </p>
+                    <div class="proj-targets">
+                        <span>🎬 فيديو علمي</span>
+                        <span>🔭 فيزياء</span>
+                    </div>
+                    <div class="proj-prog">
+                        <div class="pp-head">
+                            <span>نسبة الاكتمال</span>
+                            <span class="pp-num">10%</span>
+                        </div>
+                        <div class="pp-track"><div class="pp-fill" data-w="10"></div></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. MNLOVO Bot -->
+            <div class="proj-card">
+                <div class="proj-visual pv-4">
+                    <div class="pv-bg"></div>
+                    <div class="pv-icon">🤖</div>
+                    <div class="pv-shine"></div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-top">
+                        <h3>بوت MNLOVO</h3>
+                        <div class="proj-status plan-s">مخطط</div>
+                    </div>
+                    <p class="proj-desc">
+                        بوت ديسكورد حصري بميزات لا تجدها في أي مكان آخر — تكامل كامل مع منصة MNLOVO
+                    </p>
+                    <div class="proj-targets">
+                        <span>💬 Discord</span>
+                        <span>🐍 Python</span>
+                    </div>
+                    <div class="proj-prog">
+                        <div class="pp-head">
+                            <span>نسبة الاكتمال</span>
+                            <span class="pp-num">10%</span>
+                        </div>
+                        <div class="pp-track"><div class="pp-fill" data-w="10"></div></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ ABOUT ═══════════ -->
+<section class="section" id="about">
+    <div class="wrap">
+        <div class="about-layout">
+            <div class="about-text">
+                <div class="sec-tag">من نحن</div>
+                <h2 class="sec-title about-title">بنبني شيء<br><span class="grad-text">مختلف</span></h2>
+                <p class="about-p">
+                    MNLOVO منصة عربية تقنية — مش بس تطبيق، هي مجتمع كامل يفهم احتياجات المستخدم العربي.
+                </p>
+                <p class="about-p">
+                    هدفنا نجمع الأدوات المتقدمة، تحسين الألعاب، والمجتمع في مكان واحد بتجربة سلسة وعصرية ما تجدها في مكان ثاني.
+                </p>
+                <div class="about-values">
+                    <div class="av-item">
+                        <div class="av-dot c1"></div>
+                        <span>شفافية كاملة مع المجتمع</span>
+                    </div>
+                    <div class="av-item">
+                        <div class="av-dot c2"></div>
+                        <span>تطوير مستمر وتحديثات دورية</span>
+                    </div>
+                    <div class="av-item">
+                        <div class="av-dot c3"></div>
+                        <span>مصمم خصيصاً للمستخدم العربي</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-visual">
+                <div class="av-orb"></div>
+                <div class="av-card av-main">
+                    <div class="avc-icon">🚀</div>
+                    <div class="avc-label">منصة متكاملة</div>
+                    <div class="avc-sub">أدوات + ألعاب + مجتمع</div>
+                </div>
+                <div class="av-card av-s1">
+                    <div class="avc-icon">🌍</div>
+                    <div class="avc-label">بالعربي</div>
+                </div>
+                <div class="av-card av-s2">
+                    <div class="avc-icon">⚡</div>
+                    <div class="avc-label">سريع ومتطور</div>
+                </div>
+                <div class="av-card av-s3">
+                    <div class="avc-icon">🔒</div>
+                    <div class="avc-label">آمن وموثوق</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ DOWNLOAD CTA ═══════════ -->
+<section class="cta-sec" id="download">
+    <div class="cta-orb"></div>
+    <div class="wrap">
+        <div class="cta-body">
+            <div class="cta-pill">قادم قريباً</div>
+            <h2 class="cta-h2">حمّل MNLOVO<br><span class="grad-text">كون أول من يجربه</span></h2>
+            <p class="cta-p">التطبيق قيد التطوير النشط — سجّل بريدك وراح نرسل لك إشعار فور ما يطلع</p>
+
+            <div class="notify-row">
+                <input type="email" id="emailIn" class="email-in" placeholder="بريدك الإلكتروني..." dir="ltr">
+                <button class="notify-btn" onclick="submitNotify()">أعلمني</button>
+            </div>
+
+            <button class="dl-btn" disabled style="margin:0 auto 28px;">
+                <span class="dl-icon">⬇︎</span>
+                <span class="dl-main">تحميل التطبيق</span>
+                <span class="dl-sub">قيد التطوير</span>
+            </button>
+
+            <div class="cta-platforms">
+                <span>🪟 Windows فقط</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+    <div class="wrap">
+        <div class="ft-inner">
+            <div class="ft-brand">
+                <div class="ft-logo">MNLOVO</div>
+                <p>المنصة الشاملة للمجتمع العربي التقني</p>
+            </div>
+            <div class="ft-links">
+                <a href="#home">الرئيسية</a>
+                <a href="#features">المميزات</a>
+                <a href="#projects">مشاريعنا</a>
+                <a href="#about">من نحن</a>
+                <a href="#download">تحميل</a>
+            </div>
+        </div>
+        <div class="ft-bottom">
+            <span>© 2026 MNLOVO — جميع الحقوق محفوظة</span>
+            <span>صُنع بـ ❤️ للمجتمع العربي</span>
+        </div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
