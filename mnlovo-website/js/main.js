@@ -390,8 +390,45 @@ function showToast(msg, cls = 'toast-ok') {
     _tt = setTimeout(() => t.classList.remove('show'), 3500);
 }
 
+// ── Language toggle (AR/EN) ──────────────────
+function applyLang(lang) {
+    const html = document.documentElement;
+    html.lang = lang;
+    html.dir  = lang === 'ar' ? 'rtl' : 'ltr';
+
+    // simple text content
+    document.querySelectorAll('[data-ar][data-en]').forEach(el => {
+        const txt = el.dataset[lang];
+        if (txt != null) el.textContent = txt;
+    });
+    // HTML content (with nested spans/br)
+    document.querySelectorAll('[data-ar-html][data-en-html]').forEach(el => {
+        const html = el.dataset[lang + 'Html'];
+        if (html != null) el.innerHTML = html;
+    });
+    // input placeholders
+    document.querySelectorAll('[data-ar-ph][data-en-ph]').forEach(el => {
+        const ph = el.dataset[lang + 'Ph'];
+        if (ph != null) el.placeholder = ph;
+    });
+
+    // update toggle button label (shows the OTHER lang to switch TO)
+    const btn = document.querySelector('.nav-lang-current');
+    if (btn) btn.textContent = lang === 'ar' ? 'EN' : 'ع';
+
+    localStorage.setItem('mnlovo_lang', lang);
+}
+
+function toggleLang() {
+    const current = document.documentElement.lang || 'ar';
+    applyLang(current === 'ar' ? 'en' : 'ar');
+}
+
 // ── Init ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
     setupReveal();
     setupProgress();
+    // restore saved language (default: Arabic)
+    const saved = localStorage.getItem('mnlovo_lang') || 'ar';
+    applyLang(saved);
 });
