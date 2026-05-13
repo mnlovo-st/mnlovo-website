@@ -217,7 +217,7 @@ body::after {
     position: relative;
     width: clamp(180px,28vw,280px);
     height: clamp(180px,28vw,280px);
-    margin-bottom: clamp(36px,5vw,52px);
+    margin-bottom: clamp(70px,9vw,110px);
     display: flex; align-items:center; justify-content:center;
     flex-shrink: 0;
 }
@@ -1224,13 +1224,23 @@ body::after {
 .ft-soc-email { color: var(--c1) }
 .ft-soc-email:hover { background: rgba(0,212,255,.1); border-color: rgba(0,212,255,.25); box-shadow: 0 8px 22px rgba(0,212,255,.2) }
 
-.ft-bottom-socials {
-    display: flex; align-items: center; gap: 8px;
+.ft-made {
     font-size: clamp(11px,1.3vw,12px);
+    color: var(--txt3); font-weight: 500;
+    display: inline-flex; align-items: center; gap: 5px;
 }
-.ft-bottom-socials a { color: var(--txt3); transition: color .2s }
-.ft-bottom-socials a:hover { color: var(--txt2) }
-.ft-bottom-socials span { color: var(--txt3); opacity: .4 }
+.ft-heart {
+    color: #ff3d71; font-size: 13px; line-height: 1;
+    animation: ft-beat 1.6s ease-in-out infinite;
+    text-shadow: 0 0 8px rgba(255,61,113,.5);
+}
+@keyframes ft-beat {
+    0%,100% { transform: scale(1) }
+    20%     { transform: scale(1.25) }
+    40%     { transform: scale(1) }
+    60%     { transform: scale(1.18) }
+    80%     { transform: scale(1) }
+}
 
 /* ══════════════════════════════════════
    RESPONSIVE
