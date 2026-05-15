@@ -1,10 +1,10 @@
 {
-  "version": "BETA-2.1.0",
+  "version": "0.1.0",
   "notes": "مهم جدا",
   "pub_date": "2026-05-15T12:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVHo0SitrWHN4bjE5dEdUbXExU2ltRTRiczRSblVXcThQcXlUMmJYUGhycHJiM1loU3YvNXJGTmc4SXhQSHdVTm80bmRJemc3Z3NmS3J4czJpZW40bWZtYWxtL1A2bndFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc4ODExNDU3CWZpbGU6TU5MT1ZPXzAuMS4wX3g2NF9lbi1VUy5tc2kKTzVwcFRNYkM4Y1R2RWRYMnhZM3lUSHVCNVE0Yk8rdHdVNktCb1J0UTYwQ0t3OG5VUi9UZlptWjVkbTVWUTVWT3RFaGFLOGlPeUxlVllETFJPbVp3Qmc9PQo=",
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVHo0SitrWHN4bnhEVmIzQWJzb1VNMS9WbUs1bnB6R0t4MGsydHNOR0k1dnNlSG54aG9EeXorekwwbGhvRkd5Z2xZdU0rU0dtNmN6ZktrVXpETFBkWFVNQjJCRlptc3dZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc4ODQ3NjM5CWZpbGU6TU5MT1ZPXzAuMS4wX3g2NF9lbi1VUy5tc2kKNEEwcTZrTzdaSVNac2F0aG5CNEc0aUprZ2VtTGkwK0d4TDFvdk9PS1c2NWY2NjJIMWtkUEtOSjB4Y1lzVExxcUtyRktTSEdsRTAvZFFhWWpPblVoQ0E9PQo=",
       "url": "https://github.com/mnlovo-st/mnlovo-website/releases/download/0.1.0/MNLOVO_0.1.0_x64_en-US.msi"
     }
   }
