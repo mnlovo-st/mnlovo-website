@@ -56,7 +56,7 @@ html[dir="ltr"] body { direction: ltr; text-align: left; }
 html[dir="ltr"] .sec-head { text-align: center }
 html[dir="ltr"] .cta-body { text-align: center }
 html[dir="ltr"] .hero-body { text-align: center }
-html[dir="ltr"] .notify-success { text-align: center }
+html[dir="ltr"] .cta-platforms { text-align: center }
 html[dir="ltr"] .av-card { text-align: center }
 html[dir="ltr"] .hero-h1,
 html[dir="ltr"] .hero-sub,
@@ -597,8 +597,7 @@ body::after {
     background: linear-gradient(135deg,rgba(255,255,255,.18),transparent);
     pointer-events:none;
 }
-.dl-btn:disabled { opacity:.52; cursor:not-allowed; filter:grayscale(18%) }
-.dl-btn:not(:disabled):hover { opacity:.87; transform:translateY(-3px); box-shadow:0 18px 48px rgba(0,212,255,.36) }
+.dl-btn:hover { opacity:.87; transform:translateY(-3px); box-shadow:0 18px 48px rgba(0,212,255,.36) }
 .dl-icon { font-size: clamp(18px,3vw,22px) }
 .dl-main { font-size: clamp(15px,2.5vw,18px); font-weight:800 }
 .dl-sub  { font-size: 11px; font-weight:600; opacity:.7; background:rgba(0,0,0,.22); padding:2px 12px; border-radius:20px }
@@ -781,6 +780,27 @@ body::after {
 }
 .active-s { background:rgba(0,200,100,.1);  color:#00c864; border:1px solid rgba(0,200,100,.22) }
 .plan-s   { background:rgba(255,165,0,.1);  color:#ffa500; border:1px solid rgba(255,165,0,.22) }
+.launch-s {
+    background: linear-gradient(135deg, rgba(0,212,255,.15), rgba(121,40,202,.12));
+    color: var(--c1); border: 1px solid rgba(0,212,255,.45);
+    animation: launch-badge-glow 2.8s ease-in-out infinite;
+    position: relative; overflow: hidden;
+}
+.launch-s::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(105deg, transparent 30%, rgba(255,255,255,.18) 50%, transparent 70%);
+    transform: translateX(-100%);
+    animation: launch-shim 3s ease-in-out infinite;
+}
+@keyframes launch-badge-glow {
+    0%,100% { box-shadow: 0 0 0 0 rgba(0,212,255,0); border-color: rgba(0,212,255,.45) }
+    50%      { box-shadow: 0 0 14px 3px rgba(0,212,255,.22); border-color: rgba(0,212,255,.8) }
+}
+@keyframes launch-shim {
+    0%   { transform: translateX(-120%) }
+    50%  { transform: translateX(120%) }
+    100% { transform: translateX(120%) }
+}
 
 .proj-desc { font-size: clamp(12px,1.4vw,13px); color:var(--txt2); line-height:1.65; margin-bottom:14px }
 .proj-targets { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:18px }
@@ -899,83 +919,21 @@ body::after {
     border:1px solid rgba(121,40,202,.3);
     font-size:13px; font-weight:600;
 }
+.launch-pill {
+    background: linear-gradient(135deg, rgba(0,212,255,.12), rgba(121,40,202,.12));
+    color: var(--c1); border-color: rgba(0,212,255,.4);
+    animation: launch-pill-pulse 3s ease-in-out infinite;
+}
+@keyframes launch-pill-pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(0,212,255,0) }
+    50%      { box-shadow: 0 0 16px 4px rgba(0,212,255,.2) }
+}
 .cta-h2 {
     font-size: clamp(28px,5vw,58px);
     font-weight:900; letter-spacing:-1px; line-height:1.1; margin-bottom:16px;
 }
 .cta-p { font-size: clamp(14px,1.8vw,17px); color:var(--txt2); margin-bottom:clamp(28px,4vw,44px); line-height:1.7 }
 
-.notify-row {
-    display:flex; gap:10px; max-width:460px; margin:0 auto clamp(24px,3vw,32px);
-    transition: opacity .55s var(--ease), transform .55s var(--ease), filter .55s var(--ease);
-}
-/* vaporize is now canvas-based (see main.js → vaporizeNotifyRow) */
-
-/* ── Notify success — clean, no box ─────────────────────────── */
-.notify-success {
-    display: none; flex-direction: column; align-items: center;
-    gap: clamp(10px,1.6vw,16px);
-    max-width: 460px; margin: 0 auto clamp(20px,3vw,28px);
-    text-align: center;
-}
-.notify-success.show { display: flex; }
-
-/* spinning spark icon */
-.ns-spark {
-    font-size: 24px; line-height: 1;
-    background: var(--grad); -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; background-clip: text;
-    animation: ns-spin 6s linear infinite;
-}
-@keyframes ns-spin { to { transform: rotate(360deg) } }
-
-/* main joined text */
-.ns-joined {
-    font-size: clamp(20px,3vw,28px); font-weight: 900; line-height: 1.25;
-    color: var(--txt);
-}
-
-/* subtitle */
-.ns-msg {
-    font-size: clamp(12px,1.6vw,14px); color: var(--txt2);
-    line-height: 1.75; max-width: 360px;
-}
-
-/* discord button — original Discord color + glow */
-.ns-disc-btn {
-    display: inline-flex; align-items: center; gap: 9px;
-    padding: clamp(11px,1.6vw,14px) clamp(22px,3vw,32px);
-    border-radius: 50px;
-    background: #5865f2;
-    color: #fff; font-size: clamp(13px,1.6vw,15px); font-weight: 800;
-    font-family: var(--font);
-    box-shadow: 0 4px 24px rgba(88,101,242,.45);
-    transition: transform .22s var(--ease), box-shadow .22s;
-    white-space: nowrap; margin-top: 6px;
-}
-.ns-disc-btn:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 10px 36px rgba(88,101,242,.6);
-}
-.ns-disc-btn svg { flex-shrink: 0 }
-.email-in {
-    flex:1; padding:clamp(12px,1.8vw,15px) 18px;
-    border-radius:12px; border:1px solid var(--brd);
-    background:rgba(255,255,255,.05);
-    color:var(--txt); font-size: clamp(13px,1.6vw,15px);
-    outline:none; transition:border-color .25s; text-align:left;
-    min-width:0;
-}
-.email-in:focus { border-color:var(--brdh); outline:none; box-shadow:0 0 0 3px rgba(0,212,255,.15) }
-.email-in::placeholder { color:var(--txt3) }
-.notify-btn {
-    padding:clamp(12px,1.8vw,15px) clamp(20px,3vw,28px);
-    border-radius:12px; background:var(--grad); outline:none;
-    color:#06060a; font-size: clamp(13px,1.6vw,15px); font-weight:800;
-    transition:opacity .22s,transform .22s; white-space:nowrap;
-}
-.notify-btn:hover { opacity:.84; transform:translateY(-2px) }
-.notify-btn:active { transform:translateY(0) }
 
 .cta-platforms { display:flex; gap:18px; justify-content:center; flex-wrap:wrap }
 .cta-platforms span { font-size: clamp(12px,1.6vw,14px); color:var(--txt3) }
@@ -1178,6 +1136,60 @@ body::after {
 /* ══════════════════════════════════════
    PROJECT CARD NUMBERS
    ══════════════════════════════════════ */
+/* ── Launched project card ── */
+.proj-card.proj-launched {
+    border-color: rgba(0,212,255,.25);
+    box-shadow: 0 0 0 1px rgba(0,212,255,.06),
+                inset 0 0 50px rgba(0,212,255,.04);
+}
+.proj-card.proj-launched:hover {
+    border-color: rgba(0,212,255,.5);
+    box-shadow: 0 0 0 1px rgba(0,212,255,.12),
+                0 24px 60px rgba(0,212,255,.14);
+}
+
+/* ── Launch banner inside visual ── */
+.pv-launch-tag {
+    position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
+    padding: 9px 16px;
+    background: linear-gradient(0deg, rgba(0,212,255,.18) 0%, rgba(0,212,255,.06) 70%, transparent 100%);
+    border-top: 1px solid rgba(0,212,255,.25);
+    text-align: center;
+    font-size: 10px; font-weight: 900; letter-spacing: 2.5px;
+    color: var(--c1);
+    text-shadow: 0 0 14px rgba(0,212,255,.8);
+    animation: launch-tag-glow 3s ease-in-out infinite;
+}
+@keyframes launch-tag-glow {
+    0%,100% { opacity: .8;  text-shadow: 0 0 10px rgba(0,212,255,.6)  }
+    50%      { opacity: 1;   text-shadow: 0 0 22px rgba(0,212,255,1)   }
+}
+
+/* ── Install button inside project card ── */
+.proj-dl-btn {
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 16px; padding: 11px 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(0,212,255,.14), rgba(121,40,202,.14));
+    border: 1px solid rgba(0,212,255,.35);
+    color: var(--c1); font-size: clamp(12px,1.5vw,14px); font-weight: 800;
+    font-family: var(--font); text-decoration: none;
+    transition: transform .22s var(--ease), box-shadow .22s, background .22s;
+    position: relative; overflow: hidden;
+}
+.proj-dl-btn::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.14) 50%, transparent 65%);
+    transform: translateX(-100%); transition: transform .45s ease;
+}
+.proj-dl-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, rgba(0,212,255,.22), rgba(121,40,202,.22));
+    border-color: rgba(0,212,255,.6);
+    box-shadow: 0 8px 28px rgba(0,212,255,.3);
+}
+.proj-dl-btn:hover::after { transform: translateX(100%) }
+
 .proj-card { position: relative }
 .pj-num {
     position: absolute; top: 12px; left: 18px;
@@ -1188,6 +1200,30 @@ body::after {
 
 /* progress bar glow */
 .pp-fill { box-shadow: 0 0 10px rgba(0,212,255,.35) }
+
+/* 100% complete progress bar — rainbow shimmer */
+.pp-fill.complete {
+    background: linear-gradient(90deg, #00d4ff 0%, #7928ca 40%, #ff3d71 70%, #00d4ff 100%);
+    background-size: 200% 100%;
+    animation: pp-rainbow 2.2s linear infinite;
+    box-shadow: 0 0 16px rgba(0,212,255,.55), 0 0 32px rgba(121,40,202,.35);
+}
+@keyframes pp-rainbow {
+    0%   { background-position: 100% 0 }
+    100% { background-position: -100% 0 }
+}
+
+/* 100% number highlight */
+.pp-num-complete {
+    background: var(--grad);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    font-size: clamp(18px,2.4vw,22px);
+    animation: num-complete-pulse 3s ease-in-out infinite;
+}
+@keyframes num-complete-pulse {
+    0%,100% { filter: brightness(1) }
+    50%      { filter: brightness(1.4) drop-shadow(0 0 8px rgba(0,212,255,.6)) }
+}
 
 /* ══════════════════════════════════════
    CTA RINGS
@@ -1306,8 +1342,6 @@ body::after {
 @media (max-width: 480px) {
     .logo-scene { width:clamp(150px,55vw,210px); height:clamp(150px,55vw,210px) }
     .hero-float-badges { display:none }
-    .notify-row { flex-direction:column }
-    .email-in, .notify-btn { width:100% }
     .ft-links { gap:12px }
     .toast { white-space:normal; text-align:center; max-width:90vw }
     .dev-status { width:clamp(180px,70vw,260px) }
@@ -1341,4 +1375,3 @@ body::after {
     .hero-h1 { font-size:28px }
     .proj-top { flex-direction:column; align-items:flex-start }
 }
-
