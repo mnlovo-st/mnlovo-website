@@ -4,8 +4,8 @@
   "pub_date": "2026-05-15T12:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVHo0SitrWHN4bnhRL1VkMUN6VkEvb3F1ekJIRnd1TjdzeEQ4U0RaMDZKV3h6UXE0ZlZvT21ueFdEZmh4dVlSTHoyWUhhelFtenMrUHByR25zVGlCWnYxaXQ1SmgzUWdvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc4OTU1MjE2CWZpbGU6TU5MT1ZPXzAuMS4yX3g2NF9lbi1VUy5tc2kKZ2RGV2VabGRzK2R3bzFnYWhxaU4rUHNsV3lsd0w1U1VibUNVSGlYL3RVeXBkSUEwYnZmOGttK0FCQlU0bjRJMXFxenAwZVpybW11VXhNSkpHRTBGQ1E9PQo=",
-      "url": "https://github.com/mnlovo-st/mnlovo-website/releases/download/0.1.0/MNLOVO_0.1.2_x64_en-US.msi"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVHo0SitrWHN4bncvRjJGcy9KSFVOQTgvNVZaVXR0RGE0VXRaZ0I2bVczSmg5b3Fjd2V2YTd2M1FIWFFVZDc2enZBSmVNK0s3VnB2YkZkTzE3Y2lLQ3ZFUUxYTm5RYndNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzc5MjQwMDI2CWZpbGU6TU5MT1ZPXzAuMS4zX3g2NF9lbi1VUy5tc2kKN2I5L2hmN2FrSHd6UWlZVDlhNnp0QWtqUXhCN3FVanMzVnNlWVFyaFl3UElMLzZSbi84MUhyL3BPcWdQblV5dlBvekg5OVg5TUdmQm1GbmVVVHpRQlE9PQo=",
+      "url": "https://github.com/mnlovo-st/mnlovo-website/releases/download/0.1.0/MNLOVO_0.1.3_x64_en-US.msi"
     }
   }
 }
