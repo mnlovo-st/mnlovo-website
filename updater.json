@@ -1,11 +1,11 @@
 {
-  "version": "0.2.2",
-  "notes": "شاشة بداية جديدة بصوت · إعادة تصميم مركز التحميل · إصلاحات تنسيق شاملة · تحسينات تجاوب",
-  "pub_date": "2026-08-15T10:48:00Z",
+  "version": "0.2.3",
+  "notes": "قسم Rocket League: حظر سيرفرات ME6/ME4",
+  "pub_date": "2026-08-21T23:43:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVHo0SitrWHN4bnlqeDlPUnRxOThrTGlKc1hTcktCVFRuSXQ3eWtVcThxM3lYSlBrQjB5VmQ2bmlkQld0dmx6Ly82SHJlMUwxMTVpZlB3ck1yRzF5ekhsVFJKcVI0VVE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2NzkxMTk5CWZpbGU6TU5MT1ZPXzAuMi4yX3g2NF9lbi1VUy5tc2kKKzBWZERmcmR5c0dxYmhRZjArTFNPY2gycWhNMy9LdFUydHNmbkM0QjRwTysvdEI5b3paUG9wNGdaSm9FOFFDWndDQzg3REJ2ZzJZOWhCeW1CWHlPREE9PQo=",
-      "url": "https://github.com/mnlovo-st/mnlovo-website/releases/download/0.2.2/MNLOVO_0.2.2_x64_en-US.msi"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVHo0SitrWHN4bndRZi9sZmV1N05LWVR2RmZtTERhR0xuRzNUalZ2citUcHc0WUp4T3VaalpjR0V5K2VZVzJKcWdzeVk5Z1hmcDd0VzBnemhvWVF1UkxScmRpdFQ4QlFjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg3MzQxMTYzCWZpbGU6TU5MT1ZPXzAuMi4zX3g2NF9lbi1VUy5tc2kKQ2RidTMrc3N6dm9nblRNamZVcWFwNVhuWjNDMXJuYVpyM0VncUJ3c2hJb0tYRGgxR0huWm04S2ppUVZGWTJHZkM3Wnpob0VpRlQxTThOaDlHRmxWQVE9PQo=",
+      "url": "https://github.com/mnlovo-st/mnlovo-website/releases/download/0.2.3/MNLOVO_0.2.3_x64_en-US.msi"
     }
   }
 }
