@@ -1,11 +1,11 @@
 {
-  "version": "0.2.5",
-  "notes": "تحسينات في التطبيق",
-  "pub_date": "2026-08-24T12:00:00Z",
+  "version": "0.2.6",
+  "notes": " حل مشاكل مركز التحميل , اضافة قسم الألعاب",
+  "pub_date": "2026-08-25T12:00:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVHo0SitrWHN4bjAxRUZIVEFtNStsSnNoM3ROa25pSDlmaEMrZ1BqREs2R1F1TVpNS1dvMXFYUnQ2amtVNlg2SWxnOUQ2eGppQUZ5eEZJdkt5cFNqeVpqN1VvVE1rSEFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg3NTM2MDY1CWZpbGU6TU5MT1ZPXzAuMi41X3g2NF9lbi1VUy5tc2kKTWhTK3laVDJzUnhhYS9SdVhpU2pMVkFyWVNjM2syMUlpWDBUMkVlc21YU1FwSXhJbkEvU2NqN1JBUWQxck1VZ05nYTBicXFCVkRENHU0eFJwNGpPQVE9PQo=",
-      "url": "https://github.com/mnlovo-st/mnlovo-website/releases/download/0.2.5/MNLOVO_0.2.5_x64_en-US.msi"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVRVHo0SitrWHN4bjJNeElVVnFlOXpTSG5xQ1c0L2ZLRGtLNlE3VGpUSXJkSXM0Y2dUQXhrbU52TXd6NTdITjdKemNQUGY2bjBObjFTZWNXcGVYTnBVbWptcEQrWTk1R3cwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg3Njg2NTk0CWZpbGU6TU5MT1ZPXzAuMi42X3g2NF9lbi1VUy5tc2kKVWFKcVkzaUNoT25zeUVWRnBqUHZjaUpSOGlQTGNwTDRPOU9UK2VZbjMzM0RpNWRQWndaaXAvT2g3TlBranZIOTNFVTlBNjJwSzg4VlFIdzZuWVBYQ0E9PQo=",
+      "url": "https://github.com/mnlovo-st/mnlovo-website/releases/download/0.2.6/MNLOVO_0.2.6_x64_en-US.msi"
     }
   }
 }
